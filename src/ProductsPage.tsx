@@ -1,17 +1,20 @@
 import * as React from 'react';
 import { IProduct, products } from './ProductsData';
+import { RouteComponentProps } from 'react-router-dom';
 
 import { Link } from 'react-router-dom';
 
 interface IState {
   products: IProduct[];
+  search: string;
 }
 
-class ProductsPage extends React.Component<{}, IState> {
+class ProductsPage extends React.Component<RouteComponentProps, IState> {
   public constructor(props: {}) {
     super(props);
     this.state = {
       products: [],
+      search: ""
     };
   }
   public componentDidMount() {
