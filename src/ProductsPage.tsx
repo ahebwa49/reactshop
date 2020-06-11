@@ -10,11 +10,11 @@ interface IState {
 }
 
 class ProductsPage extends React.Component<RouteComponentProps, IState> {
-  public constructor(props: {}) {
+  public constructor(props: any) {
     super(props);
     this.state = {
       products: [],
-      search: ""
+      search: '',
     };
   }
   public componentDidMount() {
