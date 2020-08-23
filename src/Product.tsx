@@ -19,22 +19,26 @@ const Product: React.SFC<IProps> = (props) => {
   return (
     <React.Fragment>
       <h1>{product.name}</h1>
+
       <Tabs>
-        <Tabs.Tab name="Description" initialActive={true}>
-          <b>Description</b>
+        <Tabs.Tab
+          name="Description"
+          initialActive={true}
+          heading={() => <b>Description</b>}
+        >
+          <p>{product.description}</p>
         </Tabs.Tab>
-        <Tabs.Tab name="Reviews">Reviews</Tabs.Tab>
+
+        <Tabs.Tab name="Reviews" heading={() => 'Reviews'}>
+          <ul className="product-reviews">
+            {product.reviews.map((review) => (
+              <li key={review.reviewer}>
+                <i>"{review.comment}"</i> - {review.reviewer}
+              </li>
+            ))}
+          </ul>
+        </Tabs.Tab>
       </Tabs>
-      <p>{product.description}</p>
-      <div>
-        <ul className="product-reviews">
-          {product.reviews.map((review) => (
-            <li key={review.reviewer} className="product-reviews-item">
-              <i>{review.comment}</i> - {review.reviewer}
-            </li>
-          ))}
-        </ul>
-      </div>
       <p className="product-price">
         {new Intl.NumberFormat('en-US', {
           currency: 'USD',
