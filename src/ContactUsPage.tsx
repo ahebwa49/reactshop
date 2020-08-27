@@ -39,16 +39,7 @@ class ContactUsPage extends React.Component<{}, IState> {
         <p>
           If you enter your details we'll get back to you as soon as we can.
         </p>
-        <ContactUs
-          name={this.state.name}
-          onNameChange={this.handleNameChange}
-          email={this.state.email}
-          onEmailChange={this.handleEmailChange}
-          reason={this.state.reason}
-          onReasonChange={this.handleReasonChange}
-          notes={this.state.notes}
-          onNotesChange={this.handleNotesChange}
-        />
+        <ContactUs />
       </div>
     );
   }
